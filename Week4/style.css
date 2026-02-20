@@ -1,0 +1,116 @@
+:root {
+    --accent-color: #aaa;
+    --background-color: #eee;
+}
+
+body {
+    margin-top: 1%;
+    background-color: var(--background-color);
+}
+
+hr {
+    color: var(--background-color);
+    height: 1px;
+    border:none;
+    background-color: var(--background-color);
+}
+
+body img {
+    border-radius: 10px;
+}
+
+body h1 {
+    color: red;
+}
+
+.header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px;
+}
+
+.center {
+    width: 60%;
+    margin: auto auto;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+form table {
+    margin: auto auto;
+    text-align: left;
+    width: 90%;
+    border-radius: 10px;
+    background-color: #fff;
+    border-spacing: 10px 10px;
+    empty-cells: hide;
+}
+
+form table td {
+    width: 50%
+}
+
+form td input[type="text"], 
+form td input[type="number"],
+form td input[type="file"], 
+form td textarea, 
+form td select{
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 10px 3px;
+    outline: none;
+    resize: none;
+    width: 100%;
+    background-color: #fff;
+    border-color: var(--accent-color);
+}
+
+input[type="submit"] {
+    background-color: #222;
+    color: #fff;
+}
+
+input[type="reset"] {
+    background-color: #fff;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.button-group {
+    border: 1px solid;
+    border-color: var(--accent-color);
+    border-radius: 10px;
+}
+
+.button-group {
+    border: 1px solid;
+    border-color: var(--accent-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.group-button {
+    display: flex;
+    border: 1px solid;
+    border-color: var(--accent-color);
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+    background-color: var(--background-color);
+    margin: 10px;
+    padding: 2px;
+}
+
+.mini-label {
+    color: var(--accent-color);
+    font-size: small;
+    vertical-align: bottom;
+}

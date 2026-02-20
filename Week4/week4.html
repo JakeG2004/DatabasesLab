@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Project 3</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="center">
+  <!-- Header -->
+  <table class="header">
+    <tr>
+      <td rowspan="2">
+        <img src="https://www.kindpng.com/picc/m/154-1546210_transparent-group-clipart-employees-icon-3d-png-png.png" height="80">
+      </td>
+      <td>
+        <h1>Employee Registration Form</h1>
+      </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="mini-label">Fill in the information below and click Submit</p>
+        </td>
+    </tr>
+  </table>
+  <hr>
+
+  <!-- Form -->
+  <form>
+    <table>
+      <tr>
+        <td>
+          <p class="mini-label">Title</p>
+        </td>
+      </tr>
+      <!-- Title -->
+      <tr rowspan="2">
+        <td align="left" colspan="2">
+          <div class="button-group">
+            <label class="group-button">
+                <input type="radio" name="title"> Mr.
+            </label>
+            <div class="group-button">
+              <input type="radio" name="title"> Mrs.
+            </div>
+            <div class="group-button">
+              <input type="radio" name="title"> Ms.
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- Name -->
+       <tr>
+          <td>
+          <p class="mini-label">First Name</p>
+          </td>
+          <td>
+          <p class="mini-label">Last Name</p>
+          </td>
+       </tr>
+      <tr>
+        <td><input type="text" name="first_name" placeholder="First Name"></td>
+        <td><input type="text" name="last_name" placeholder="Last Name"></td>
+      </tr>
+
+      <!-- Address -->
+      <td>
+        <p class="mini-label">Mail Address 1</p>
+      </td>
+      <tr>
+        <td colspan="2"><input type="text" name="address_1" placeholder="Mail Address 1"></td>
+      </tr>
+
+      <td>
+        <p class="mini-label">Mail Address 1</p>
+      </td>
+      <tr>
+        <td colspan="2"><input type="text" name="address_2" placeholder="Mail Address 2"></td>
+      </tr>
+
+       <tr>
+          <td>
+          <p class="mini-label">City</p>
+          </td>
+          <td>
+          <p class="mini-label">State</p>
+          </td>
+       </tr>
+      <tr>
+        <td><input type="text" name="city" placeholder="City"></td>
+        <td>
+          <select name="state">
+            <option value="" disabled selected>Select state</option>
+            <option>Washington</option>
+            <option>Idaho</option>
+            <option>Oregon</option>
+          </select>
+        </td>
+      </tr>
+
+      <!-- Zip -->
+       <tr>
+          <td>
+          <p class="mini-label">Zip</p>
+          </td>
+          <td>
+          <p class="mini-label">Upload Photo</p>
+          </td>
+       </tr>
+      <tr>
+        <td><input type="number" name="zip"></td>
+        <td><input type="file" name="photo"></td>
+      </tr>
+
+      <!-- Email -->
+      <td>
+        <p class="mini-label">Email</p>
+      </td>
+      <tr>
+        <td colspan="2"><input type="text" name="email" placeholder="Email"></td>
+      </tr>
+
+      <!-- Phone -->
+      <td>
+        <p class="mini-label">Mobile</p>
+      </td>
+      <tr>
+        <td colspan="2"><input type="text" name="phone" placeholder="+91"></td>
+      </tr>
+
+      <!-- Languages -->
+      <td>
+        <p class="mini-label">Languages Known</p>
+      </td>
+      <tr>
+        <td colspan="2">
+          <div class="button-group">
+            <div class="group-button">
+            <input type="checkbox" name="english"> English<br>
+            </div>
+            <div class="group-button">
+            <input type="checkbox" name="spanish"> Spanish<br>
+            </div>
+            <div class="group-button">
+            <input type="checkbox" name="french"> French
+            </div>
+          </div>
+        </td>
+      </tr>
+
+      <!-- Additional Info -->
+      <td>
+        <p class="mini-label">Additional Information</p>
+      </td>
+      <tr>
+        <td colspan="2">
+          <textarea name="info" rows="4" cols="30" placeholder="Optional"></textarea>
+        </td>
+      </tr>
+
+      <!-- Buttons -->
+      <tr>
+        <td colspan="2" align="right">
+          <input type="reset" value="Reset">
+          <input type="submit" value="Submit">
+        </td>
+      </tr>
+
+    </table>
+  </form>
+  </div>
+
+</body>
+</html>
+

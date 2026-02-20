@@ -1,0 +1,28 @@
+form {
+    width: 60%;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+body {
+    background-color: #eee;
+}
+
+.button-container {
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: #ccc;
+    padding: 5px;
+}
+
+.button-item {
+    background-color: #eee;
+    border: 1px solid;
+    border-color: #ccc;
+    border-radius: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 2px;
+}
