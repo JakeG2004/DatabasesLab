@@ -1,0 +1,60 @@
+{% extends "Pets/base.html" %}
+
+{% block title %}Database{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 mx-auto text-center">
+        <h1 class="display-4">Database</h1>
+        <p class="lead">Manually modify database entries.</p>
+    </div>
+</div>
+
+<br>
+
+<div class="row">
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Table Name</th>
+        <th scope="col"># of Entries</th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Pets</td>
+            <td>0</td>
+            <td><a href="{% url 'Pets:pets_db' %}" type="button" id="submit-btn" class="btn btn-primary w-100">View</a></td>
+        </tr>
+        <tr>
+            <td>Owners</td>
+            <td>0</td>
+            <td><a href="" type="button" id="submit-btn" class="btn btn-primary w-100">View</a></td>
+        </tr>
+        <tr>
+            <td>Owns</td>
+            <td>2</td>
+            <td><a href="" type="button" id="submit-btn" class="btn btn-primary w-100">View</a></td>
+        </tr>
+        <tr>
+            <td>Likes</td>
+            <td>2</td>
+            <td><a href="" type="button" id="submit-btn" class="btn btn-primary w-100">View</a></td>
+        </tr>
+        <tr>
+            <td>Foods</td>
+            <td>2</td>
+            <td><a href="" type="button" id="submit-btn" class="btn btn-primary w-100">View</a></td>
+        </tr>
+        <tr>
+            <td>Purchases</td>
+            <td>2</td>
+            <td><a href="" type="button" id="submit-btn" class="btn btn-primary w-100">View</a></td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+
+{% endblock %}

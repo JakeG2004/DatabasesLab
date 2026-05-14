@@ -1,0 +1,87 @@
+{% extends "lab4/base.html" %}
+
+{% block title %}Likes DB{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 mx-auto text-center">
+        <h1 class="display-4">Likes Table</h1>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <form id="member-form">
+        {% csrf_token %}
+        <div class="d-flex gap-2 align-items-center">
+            <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#addModal">
+                Add
+            </button>
+        </div>
+    </form>
+</div>
+
+<br>
+
+<div class="row">
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Pet Name</th>
+            <th scope="col">Type Of Food</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for like in likes %}
+        <tr data-id="{{ likes.PetID.PetID }}">
+            <td>{{ like.PetID.Name }}</td>
+            <td><input type="text" class="form-control typeoffood" value="{{ like.TypeofFood }}"></td>
+            <td><button class="btn btn-primary update-btn w-100" data-url="{% url 'lab4:update_like' like.PetID.PetID %}">Apply</button></td>
+            <td><button class="btn btn-danger delete-btn w-100" data-url="{% url 'lab4:delete_like' like.PetID.PetID %}">Delete</button></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="10" class="text-center text-muted">No likes found in the database.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Add New</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST" action="{% url 'lab4:add_like' %}">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="petid" class="form-label">PetID</label>
+            <input type="number" name="petid" class="form-control" id="petid">
+          </div>
+          <div class="mb-3">
+            <label for="pricepaid" class="form-label">Type of Food</label>
+            <input type="text" name="typeoffood" class="form-control" id="typeoffood">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" name="add_owner" class="btn btn-success">Save</button> 
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/likes.js' %}"></script>
+{% endblock %}

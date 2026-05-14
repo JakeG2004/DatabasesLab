@@ -1,0 +1,120 @@
+{% extends "lab4/base.html" %}
+
+{% block title %}Owners DB{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 mx-auto text-center">
+        <h1 class="display-4">Owners Table</h1>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <form id="member-form">
+        {% csrf_token %}
+        <div class="d-flex gap-2 align-items-center">
+            <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#addModal">
+                Add
+            </button>
+        </div>
+    </form>
+</div>
+
+<br>
+
+<div class="row">
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">OID</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Street</th>
+            <th scope="col">City</th>
+            <th scope="col">Zip Code</th>
+            <th scope="col">State</th>
+            <th scope="col">Age</th>
+            <th scope="col">Annual Income</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for owner in owners %}
+        <tr data-id="{{ pet.PetID }}">
+            <td>{{ owner.OID }}</td>
+            <td><input type="text" class="form-control owner-name" value="{{ owner.LastName }}"></td>
+            <td><input type="text" class="form-control owner-street" value="{{ owner.Street }}"></td>
+            <td><input type="text" class="form-control owner-city" value="{{ owner.City }}"></td>
+            <td><input type="text" class="form-control owner-zipcode" value="{{ owner.ZipCode }}"></td>
+            <td><input type="text" class="form-control owner-state" value="{{ owner.State }}"></td>
+            <td><input type="text" class="form-control owner-age" value="{{ owner.Age }}"></td>
+            <td><input type="text" class="form-control owner-income" value="{{ owner.AnnualIncome }}"></td>
+            <td><button class="btn btn-primary update-btn w-100" data-url="{% url 'lab4:update_owner' owner.OID %}">Apply</button></td>
+            <td><button class="btn btn-danger delete-btn w-100" data-url="{% url 'lab4:delete_owner' owner.OID %}">Delete</button></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="10" class="text-center text-muted">No owners found in the database.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addModalLabel">Add New</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST" action="{% url 'lab4:add_owner' %}">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="pet_name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="owner_name" name="owner_name" placeholder="John">
+          </div>
+          <div class="mb-3">
+            <label for="pet_age" class="form-label">Street</label>
+            <input type="text" class="form-control" id="owner_street" name="owner_street" placeholder="Perimeter Drive">
+          </div>
+          <div class="mb-3">
+            <label for="pet_street" class="form-label">City</label>
+            <input type="text" class="form-control" id="owner_city" name="owner_city" placeholder="Moscow">
+          </div>
+          <div class="mb-3">
+            <label for="pet_city" class="form-label">Zip Code</label>
+            <input type="text" class="form-control" id="owner_zip" name="owner_zip" placeholder="83843">
+          </div>
+          <div class="mb-3">
+            <label for="pet_zipcode" class="form-label">State</label>
+            <input type="text" class="form-control" id="owner_state" name="owner_state" placeholder="Idaho">
+          </div>
+          <div class="mb-3">
+            <label for="pet_state" class="form-label">Age</label>
+            <input type="number" class="form-control" id="owner_age" name="owner_age" placeholder="1">
+          </div>
+          <div class="mb-3">
+            <label for="pet_type" class="form-label">Annual Income</label>
+            <input type="number" class="form-control" id="owner_annual_income" name="owner_annual_income" placeholder="100000">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" name="add_owner" class="btn btn-success">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/owners.js' %}"></script>
+{% endblock %}

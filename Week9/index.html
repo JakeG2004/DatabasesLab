@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBLab Week 9</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles.css">
+    
+</head>
+
+<body class="container mt-4">
+
+    <form action="submit.php" method="POST" enctype="multipart/form-data">
+
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-2">
+            <img src="https://www.kindpng.com/picc/m/154-1546210_transparent-group-clipart-employees-icon-3d-png-png.png" height="80">
+        </div>
+        <div class="col-10">
+            <h1 class="text-danger">Employee Registration Form</h1>
+        </div>
+    </div>
+
+
+    <!-- Title -->
+    <div class="form-group">
+        <label>Title</label><br>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="title" value="Mr">
+            <label class="form-check-label">Mr.</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="title" value="Mrs">
+            <label class="form-check-label">Mrs.</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="title" value="Ms">
+            <label class="form-check-label">Ms.</label>
+        </div>
+
+    </div>
+
+
+    <!-- First / Last Name -->
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="first_name" placeholder="First Name" pattern="[A-Za-z ]+" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="last_name" placeholder="Last Name" pattern="[A-Za-z]+" required>
+        </div>
+
+    </div>
+
+
+    <!-- Address 1 -->
+    <div class="form-group">
+        <label for="inputAddress">Mail Address 1</label>
+        <input type="text" class="form-control" id="inputAddress" name="address_1" placeholder="1234 Main St" required>
+    </div>
+
+    <!-- Address 2 -->
+    <div class="form-group">
+        <label for="inputAddress2">Mail Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" name="address_2" placeholder="Apartment, studio, etc">
+    </div>
+
+
+    <!-- City / State / Zip -->
+    <div class="form-row">
+
+        <div class="form-group col-md-4">
+            <label for="city">City</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="Moscow" pattern="[A-Za-z]+" required>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="state">State</label>
+            <select id="state" name="state" class="form-control">
+                <option value="Washington">Washington</option>
+                <option value="Idaho">Idaho</option>
+                <option value="Oregon">Oregon</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-4">
+            <label for="zip">Zip Code</label>
+            <input type="number" class="form-control" id="zip" name="zip-code" placeholder="Zip Code" required>
+        </div>
+
+    </div>
+
+
+    <!-- Photo Upload -->
+    <div class="form-group">
+        <label for="photo">Upload Photo</label>
+        <input type="file" class="form-control-file" id="photo" name="photo-upload" required>
+    </div>
+
+
+    <!-- Email -->
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="john@mysite.com" required>
+    </div>
+
+
+    <!-- Phone -->
+    <div class="form-group">
+        <label for="mobile">Mobile</label>
+        <input type="text" class="form-control" id="mobile" name="phone-number" placeholder="+12085551312" pattern="[+][0-9]{11}" required>
+    </div>
+
+
+    <!-- Languages -->
+    <div class="form-group">
+        <label>Languages Known</label><br>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="english" value="English">
+            <label class="form-check-label">English</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="spanish" value="Spanish">
+            <label class="form-check-label">Spanish</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="french" value="French">
+            <label class="form-check-label">French</label>
+        </div>
+
+    </div>
+
+
+    <!-- Additional Info -->
+    <div class="form-group">
+        <label for="additionalinfo">Additional Info</label>
+        <textarea class="form-control" id="additionalinfo" name="additional-info" placeholder="Optional"></textarea>
+    </div>
+
+
+    <!-- Buttons -->
+    <div class="d-flex justify-content-end">
+        <div class="btn-group">
+            <button type="reset" class="btn btn-light">Reset</button>
+            <button type="submit" class="btn btn-dark">Submit</button>
+            <a href="view.php" type="button" class="btn btn-primary">View</a>
+        </div>
+    </div>
+
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

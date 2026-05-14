@@ -92,18 +92,18 @@
         </tr>
     </table>
     
-    <form>
+    <form action="submit.php" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <div></div>
             <div style="display: flex; justify-content: center;">
-                <input type="radio" id="title" name="title">
-                <label for="title">Mr.</label>
+                <input type="radio" name="title" value="Mr">
+                <label>Mr.</label>
 
-                <input type="radio" id="title" name="title">
-                <label for="title">Mrs.</label>
+                <input type="radio" name="title" value="Mrs">
+                <label>Mrs.</label>
 
-                <input type="radio" id="title" name="title">
-                <label for="title">Ms.</label>
+                <input type="radio" name="title" value="Ms">
+                <label>Ms.</label>
             </div>
         </div>
 

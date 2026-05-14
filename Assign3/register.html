@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3 Register</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+
+<body class="p-0"> <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainMenu" aria-controls="mainMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainMenu">
+        <ul class="navbar-nav mr-auto mt-2">
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="register.html">Register <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-danger" href="logout.php">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h1>This is the freakin' register page, yo.</h1>
+    <small>Got FOMO? Couldn't resist joining? Already joined? <a href="login.php">Login.</a></small>
+    <hr>
+
+    <form action="register_result.php" method="POST" enctype="multipart/form-data">
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="firstname">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="first_name" placeholder="First Name" pattern="[A-Za-z ]+" required>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="lastname">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="last_name" placeholder="Last Name" pattern="[A-Za-z]+" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="photo">Upload Photo</label>
+        <input type="file" class="form-control-file" id="photo" name="photo-upload" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="john@mysite.com" required>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Enter Password" required>
+    </div>
+
+    <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="btn-group">
+            <button type="reset" class="btn btn-light">Reset</button>
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </div>
+    </div>
+
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

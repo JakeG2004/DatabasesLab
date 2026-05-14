@@ -1,0 +1,88 @@
+{% extends "lab4/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto text-center">
+        <h1 class="display-4">Purchases Table</h1>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#addPurchaseModal">
+        Add New Purchase
+    </button>
+</div>
+
+<br>
+
+<div class="row">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Owner</th>
+                <th>Food</th>
+                <th>Pet</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Quantity</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in purchases %}
+            <tr>
+                <td>{{ p.OID.LastName }}</td>
+                <td>{{ p.FoodID.Name }}</td>
+                <td>{{ p.PetID.Name }}</td>
+                <td><input type="number" class="form-control month" value="{{ p.Month }}"></td>
+                <td><input type="number" class="form-control year" value="{{ p.Year }}"></td>
+                <td><input type="number" class="form-control quantity" value="{{ p.Quantity }}"></td>
+                <td>
+                    <button class="btn btn-primary update-btn w-100" data-url="{% url 'lab4:update_purchase' p.id %}">Apply</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger delete-btn w-100" data-url="{% url 'lab4:delete_purchase' p.id %}">Delete</button>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="8" class="text-center text-muted">No purchases found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="addPurchaseModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Record Purchase</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST" action="{% url 'lab4:add_purchase' %}">
+                {% csrf_token %}
+                <div class="modal-body">
+                    <input type="number" name="oid" class="form-control mb-2" placeholder="Owner ID" required>
+                    <input type="number" name="foodid" class="form-control mb-2" placeholder="Food ID" required>
+                    <input type="number" name="petid" class="form-control mb-2" placeholder="Pet ID" required>
+                    <input type="number" name="month" class="form-control mb-2" placeholder="Month (1-12)" required>
+                    <input type="number" name="year" class="form-control mb-2" placeholder="Year (YYYY)" required>
+                    <input type="number" name="quantity" class="form-control mb-2" placeholder="Quantity" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save Purchase</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/purchases.js' %}"></script>
+{% endblock %}

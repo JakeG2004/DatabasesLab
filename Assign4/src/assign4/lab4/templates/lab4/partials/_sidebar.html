@@ -1,0 +1,63 @@
+{% load static %}
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'lab4:index' %}">
+        <i class="mdi mdi-grid-large menu-icon"></i>
+        <span class="menu-title">Dashboard</span>
+      </a>
+    </li>
+    
+    <li class="nav-item nav-category">Database Tables</li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'lab4:pets_db' %}">
+        <i class="menu-icon mdi mdi-dog"></i>
+        <span class="menu-title">Pets</span>
+      </a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'lab4:foods_db' %}">
+        <i class="menu-icon mdi mdi-food-apple"></i>
+        <span class="menu-title">Foods</span>
+      </a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'lab4:likes_db' %}">
+        <i class="menu-icon mdi mdi-heart"></i>
+        <span class="menu-title">Likes</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'lab4:owners_db' %}">
+        <i class="menu-icon mdi mdi-account-multiple"></i>
+        <span class="menu-title">Owners</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'lab4:owns_db' %}">
+        <i class="menu-icon mdi mdi-link-variant"></i>
+        <span class="menu-title">Owns (Relation)</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'lab4:purchases_db' %}">
+        <i class="menu-icon mdi mdi-cart-outline"></i>
+        <span class="menu-title">Purchases</span>
+      </a>
+    </li>
+
+    <li class="nav-item nav-category">Help</li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="menu-icon mdi mdi-file-document"></i>
+        <span class="menu-title">Documentation</span>
+      </a>
+    </li>
+  </ul>
+</nav>

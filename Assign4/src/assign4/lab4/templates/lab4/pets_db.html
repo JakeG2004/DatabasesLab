@@ -1,0 +1,120 @@
+{% extends "lab4/base.html" %}
+
+{% block title %}Pets DB{% endblock %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-8 mx-auto text-center">
+        <h1 class="display-4">Pets Table</h1>
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <form id="member-form">
+        {% csrf_token %}
+        <div class="d-flex gap-2 align-items-center">
+            <button type="button" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#addPetModal">
+                Add
+            </button>
+        </div>
+    </form>
+</div>
+
+<br>
+
+<div class="row">
+    <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">PetID</th>
+            <th scope="col">Pet Name</th>
+            <th scope="col">Pet Age</th>
+            <th scope="col">Pet Street</th>
+            <th scope="col">Pet City</th>
+            <th scope="col">Pet Zip Code</th>
+            <th scope="col">Pet State</th>
+            <th scope="col">Pet Type</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pet in pets %}
+        <tr data-id="{{ pet.PetID }}">
+            <td>{{ pet.PetID }}</td>
+            <td><input type="text" class="form-control pet-name" value="{{ pet.Name }}"></td>
+            <td><input type="text" class="form-control pet-age" value="{{ pet.Age }}"></td>
+            <td><input type="text" class="form-control pet-street" value="{{ pet.Street }}"></td>
+            <td><input type="text" class="form-control pet-city" value="{{ pet.City }}"></td>
+            <td><input type="text" class="form-control pet-zipcode" value="{{ pet.ZipCode }}"></td>
+            <td><input type="text" class="form-control pet-state" value="{{ pet.State }}"></td>
+            <td><input type="text" class="form-control pet-type" value="{{ pet.TypeofPet }}"></td>
+            <td><button class="btn btn-primary update-btn w-100" data-url="{% url 'lab4:update_pet' pet.PetID %}">Apply</button></td>
+            <td><button class="btn btn-danger delete-btn w-100" data-url="{% url 'lab4:delete_pet' pet.PetID %}">Delete</button></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="10" class="text-center text-muted">No pets found in the database.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="addPetModal" tabindex="-1" aria-labelledby="addPetModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addPetModalLabel">Add New Pet</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form method="POST" action="{% url 'lab4:add_pet' %}">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="pet_name" class="form-label">Pet Name</label>
+            <input type="text" class="form-control" id="pet_name" name="pet_name" placeholder="Bing Bing">
+          </div>
+          <div class="mb-3">
+            <label for="pet_age" class="form-label">Pet Age</label>
+            <input type="number" class="form-control" id="pet_age" name="pet_age" placeholder="1">
+          </div>
+          <div class="mb-3">
+            <label for="pet_street" class="form-label">Pet Street</label>
+            <input type="text" class="form-control" id="pet_street" name="pet_street" placeholder="Perimeter Drive">
+          </div>
+          <div class="mb-3">
+            <label for="pet_city" class="form-label">Pet City</label>
+            <input type="text" class="form-control" id="pet_city" name="pet_city" placeholder="Moscow">
+          </div>
+          <div class="mb-3">
+            <label for="pet_zipcode" class="form-label">Pet Zip Code</label>
+            <input type="text" class="form-control" id="pet_zipcode" name="pet_zipcode" placeholder="83843">
+          </div>
+          <div class="mb-3">
+            <label for="pet_state" class="form-label">Pet State</label>
+            <input type="text" class="form-control" id="pet_state" name="pet_state" placeholder="Idaho">
+          </div>
+          <div class="mb-3">
+            <label for="pet_type" class="form-label">Pet Type</label>
+            <input type="text" class="form-control" id="pet_type" name="pet_type" placeholder="Cat">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" name="add_pet" class="btn btn-success">Save Pet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/pets.js' %}"></script>
+{% endblock %}
